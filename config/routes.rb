@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   get 'dashboard', to: "organizations#dashboard"
   get 'data', to: 'organizations#data', :defaults => { :format => 'json' }
 
+
+  resources :refugees
   resources :organizations
 end

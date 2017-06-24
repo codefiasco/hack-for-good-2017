@@ -1,0 +1,29 @@
+.list-group-item{
+  margin: 25px 0;
+}
+
+.list-group-item:hover{
+  background: #eee;
+}
+
+.list-group-item-link{
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.list-group-item-link:hover{
+  background: #eee;
+}
+
+.list-image{
+  width: 80px;
+  height: 80px;
+  margin-right: 25px auto;
+  display: block;
+}
+
+.list-info{
+  line-height: 40px;
+  margin: 0;
+}

@@ -1,0 +1,13 @@
+<div class="container">
+  <ul class="list-group list-inline col-md-3 col-md-offset-3">
+    <% @refugees.each do |ref| %>
+      <li class="list-group-item">
+        <%= link_to refugee_path(ref.id), class: "list-group-item-link" do %>
+          <%= image_tag "profile.png", class: "list-image" %>
+          <p class="list-info"><%= ref.name %></p>
+          <p class="list-info"><%= ref.nationality %></p>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
