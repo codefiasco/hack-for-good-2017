@@ -1,32 +1,31 @@
 
-	var clusterChart;
+var clusterChart;
+var clusters;
+var dense;
+var selectedBar;
 
-	var clusters;
+ $.ajax({
+       type: "GET",
+       contentType: "application/json; charset=utf-8",
+       url: 'data',
+       dataType: 'json',
+       success: function (data) {
+           draw(data);
+       },
+       error: function (result) {
+           error();
+       }
+   });
 
-	var dense;
-
-     $.ajax({
-           type: "GET",
-           contentType: "application/json; charset=utf-8",
-           url: 'data',
-           dataType: 'json',
-           success: function (data) {
-               draw(data);
-           },
-           error: function (result) {
-               error();
-           }
-       });
-
-	function draw(data) {
-        dense = data;
-        gen_dense();
-	}
+function draw(data) {
+    dense = data;
+    genDense();
+    genPie();
+}
 
 
 
-	var selectedBar;
-	function gen_dense () {
+function genDense(){
 		
 		var w = 700;
 		var h = 400;
@@ -76,10 +75,17 @@
 													d3.select(this).attr("style","cursor:pointer;");
 													if(i!=selectedBar) d3.select(this).attr("fill","blue");
 													var texts=svg.selectAll("text");
-													if(i!=selectedBar)
+													if(i!=selectedBar){
 														d3.select(texts[0][i])
-															.text(function(d) {return d.lang;});
-														})
+                                                        .attr({
+                                                           //id: "t" + d.x + "-" + d.y + "-" + i,  // Create an id for text so we can select it later for removing on mouseout
+                                                            x: function() { return xScale(d.x) - 30; },
+                                                            y: function() { return yScale(d.y) - 15; }
+                                                        })
+                                                        .text(function() {
+                                                          return d.lang;
+                                                        })
+                                                    }});
 						.on("mouseout",function(d,i){
 								
 													    var texts=svg.selectAll("text");
@@ -102,8 +108,6 @@
 			.attr("x",350)
 			.attr("y",430)
 			.text("");
-			
-						
 						
 		svg.append("g")
 			.attr("class", "axis") //Assign "axis" class
@@ -126,52 +130,44 @@
 			.attr("x", padding + 20)
 			.style("text-anchor", "middle")
 			.text("Number of Registered Refugees");
-
-
-
 }
 
-/*
-genPie(){
+function genPie(){
 
-    var svg =d3.select("#pieChart"),
-        width = +svg.attr("width"),
-        height = +svg.attr("height"),
-        radius = Math.min(width, height) / 2,
-        g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+    var w = 300,                        //width
+    h = 300,                            //height
+    r = 100,                            //radius
+    color = d3.scale.category20c();     //builtin range of colors
+    data = [{"label":"one", "value":20},
+          {"label":"two", "value":50},
+          {"label":"three", "value":30}];
 
-    var color = d3.scaleOrdinal(["#98abc5", "#8a89a6"]);
-
-    var pie = d3.pie()
-        .sort(null)
-        .value(function(d) { return d.population; });
-
-    var path = d3.arc()
-        .outerRadius(radius - 10)
-        .innerRadius(0);
-
-    var label = d3.arc()
-        .outerRadius(radius - 40)
-        .innerRadius(radius - 40);
-
-    d3.csv("data.csv", function(d) {
-      d.population = +d.population;
-      return d;
-    }, function(error, data) {
-      if (error) throw error;
-
-      var arc = g.selectAll(".arc")
-        .data(pie(data))
-        .enter().append("g")
-          .attr("class", "arc");
-
-      arc.append("path")
-          .attr("d", path)
-          .attr("fill", function(d) { return color(d.data.age); });
-
-      arc.append("text")
-          .attr("transform", function(d) { return "translate(" + label.centroid(d) + ")"; })
-          .attr("dy", "0.35em")
-          .text(function(d) { return d.data.age; });
-    });
-}*/
+    var vis = d3.select("#pieChart")
+      .append("svg:svg")              //create the SVG element inside the <body>
+      .data([data])                   //associate our data with the document
+          .attr("width", w)           //set the width and height of our visualization (these will be attributes of the <svg> tag
+          .attr("height", h)
+      .append("svg:g")                //make a group to hold our pie chart
+          .attr("transform", "translate(" + r + "," + r + ")")    //move the center of the pie chart from 0, 0 to radius, radius
+    var arc = d3.svg.arc()              //this will create <path> elements for us using arc data
+      .outerRadius(r);
+    var pie = d3.layout.pie()           //this will create arc data for us given a list of values
+      .value(function(d) { return d.value; });    //we must tell it out to access the value of each element in our data array
+    var arcs = vis.selectAll("g.slice")     //this selects all <g> elements with class slice (there aren't any yet)
+      .data(pie)                          //associate the generated pie data (an array of arcs, each having startAngle, endAngle and value properties)
+      .enter()                            //this will create <g> elements for every "extra" data element that should be associated with a selection. The result is creating a <g> for every object in the data array
+          .append("svg:g")                //create a group to hold each slice (we will have a <path> and a <text> element associated with each slice)
+              .attr("class", "slice");    //allow us to style things in the slices (like text)
+      arcs.append("svg:path")
+              .attr("fill", function(d, i) { return color(i); } ) //set the color for each slice to be chosen from the color function defined above
+              .attr("d", arc);                                    //this creates the actual SVG path using the associated data (pie) with the arc drawing function
+      arcs.append("svg:text")                                     //add a label to each slice
+              .attr("transform", function(d) {                    //set the label's origin to the center of the arc
+              //we have to make sure to set these before calling arc.centroid
+              d.innerRadius = 0;
+              d.outerRadius = r;
+              return "translate(" + arc.centroid(d) + ")";        //this gives us a pair of coordinates like [50, 50]
+          })
+          .attr("text-anchor", "middle")                          //center the text on it's origin
+          .text(function(d, i) { return data[i].label; });        //get the label from our original data array
+}

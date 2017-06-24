@@ -1,0 +1,28 @@
+<div class="container">
+  <!--<h1 align="center" class="sub-title">Organizations</h1>-->
+  <div align="center">
+    <div class="inner-addon left-addon search-box">
+      <i class="glyphicon glyphicon-search"></i>
+      <input type="text" id="search" placeholder="Search" autocomplete="off" class="form-control center-block">
+    </div>
+  </div>
+  <div>
+  <br>
+  <div class="row">
+    <% @jobs.each do |j| %>
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <%= image_tag "profile.png", class: "list-image" %>
+              <div class="caption">
+                <h3 class="text-center"><%= j.title %></h3>
+                <p><strong>Competências:</strong> - <% j.skills.each do |s| %><%= s.name %> - <% end %></p>
+                <div class="text-center">
+                  <%= link_to "Ver Detalhes", job_path(j.id), class: "btn btn-primary" %>
+                </div>
+              </div>
+            </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

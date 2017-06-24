@@ -7,18 +7,18 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Organizations
-Organization.create(name: 'acm', nif: '123456789', password: '123456', contact: '912345678', address: 'Av. de Berna, 45 A
+Organization.create(name: 'acm', password: '123456', contact: '912345678', address: 'Av. de Berna, 45 A
 1067-001 Lisboa, Portugal', email: '123@acm.pt')
-Organization.create(name: 'gulbenkian', nif: '987654321', password: '123456', contact: '961234578', address: 'Av. de Berna, 45 A
+Organization.create(name: 'gulbenkian', password: '123456', contact: '961234578', address: 'Av. de Berna, 45 A
 1067-001 Lisboa, Portugal', email: 'hello@gulbenkian.pt')
-Organization.create(name: 'lotus', nif: '111222333', password: '123456', contact: '921345678', address: 'Av. de Berna, 45 A
+Organization.create(name: 'lotus', password: '123456', contact: '921345678', address: 'Av. de Berna, 45 A
 1067-001 Lisboa, Portugal', email: 'hello@lotus.pt')
 
 # Refugees
 Refugee.create(name: 'Anne Marie', birthday: "1971-06-24", gender: true, degree_id: 6, nationality: "Arabic", email: "anne@email.com")
 Refugee.create(name: 'Michael Tutuola', birthday: "1975-06-24", gender: false, degree_id: 5, nationality: "Arabic", email: "michael@email.com")
-Refugee.create(name: 'John Doe', birthday: "1990-06-24", gender: false, father_id: 2, mother_id: 1, degree_id: 7, nationality: "Arabic", email: "john@email.com")
-Refugee.create(name: 'Jane Doe', birthday: "2007-06-24", gender: true, father_id: 2, mother_id: 1, degree_id: 2, nationality: "Arabic", email: "jane@email.com")
+Refugee.create(name: 'John Doe', birthday: "1990-06-24", gender: false, degree_id: 7, nationality: "Arabic", email: "john@email.com")
+Refugee.create(name: 'Jane Doe', birthday: "2007-06-24", gender: true, degree_id: 2, nationality: "Arabic", email: "jane@email.com")
 
 # Professions
 Profession.create(name: 'Professor Universitário')
@@ -63,3 +63,44 @@ RefugeesLanguagesLink.create(refugee_id: 4, language_id: 3)
 RefugeesLanguagesLink.create(refugee_id: 1, language_id: 2)
 RefugeesLanguagesLink.create(refugee_id: 3, language_id: 2)
 RefugeesLanguagesLink.create(refugee_id: 3, language_id: 1)
+
+# Skills
+Skill.create(name: "html")
+Skill.create(name: "css")
+Skill.create(name: "javascript")
+Skill.create(name: "cuidados paliativos")
+Skill.create(name: "photoshop")
+Skill.create(name: "marketing")
+Skill.create(name: "comunicação")
+Skill.create(name: "atendimento")
+Skill.create(name: "animador")
+Skill.create(name: "arquitectura")
+Skill.create(name: "mecânica")
+Skill.create(name: "línguas")
+Skill.create(name: "gestão")
+Skill.create(name: "finanças")
+Skill.create(name: "recursos humanos")
+Skill.create(name: "economia")
+Skill.create(name: "copywritting")
+Skill.create(name: "escritor")
+Skill.create(name: "carpintaria")
+Skill.create(name: "limpezas")
+Skill.create(name: "condução")
+
+# Refugee Skill Link
+SkillsRefugeesLink.create(refugee_id: 1, skill_id: 1)
+SkillsRefugeesLink.create(refugee_id: 1, skill_id: 2)
+SkillsRefugeesLink.create(refugee_id: 1, skill_id:5)
+SkillsRefugeesLink.create(refugee_id: 1, skill_id: 6)
+SkillsRefugeesLink.create(refugee_id: 1, skill_id: 7)
+SkillsRefugeesLink.create(refugee_id: 1, skill_id: 17)
+
+# Jobs
+Job.create(title: "Frontend Developer", description: "Create websites.", expiration_date: "2017-08-24", location: "Av. de Berna, 45 A
+1067-001 Lisboa, Portugal")
+
+# Job Skill Links
+JobsSkillsLink.create(job_id: 1, skill_id: 1)
+JobsSkillsLink.create(job_id: 1, skill_id: 2)
+JobsSkillsLink.create(job_id: 1, skill_id: 3)
+JobsSkillsLink.create(job_id: 1, skill_id: 5)
