@@ -4,19 +4,26 @@
 
     <div class="row">
 
-      <div class="jumbotron col-md-6 col-md-offset-3" style="margin-top: 6em">
-      <h1>Welcome to REFIND!</h1>
+      <div class="jumbotron col-md-8 col-md-offset-2" style="margin-top: 6em">
+      <h1>Welcome to <%= image_tag "refind.png", alt: "ReFind", size: "250x80" %>!
+      </h1>
+
       <p>Here you can find refugees, look for information and inclusion recomendations</p>
 
 
-    <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#refModal">
-        Refugees
-      </button>
 
-      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#orgModal">
-        Organizations
-      </button>
+      <div class="col-md-6 col-md-offset-3">
+
+      <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary btn-lg spacing" data-toggle="modal" data-target="#refModal">
+          Refugees
+        </button>
+
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#orgModal">
+          Organizations
+        </button>
+
+      </div>
 
     </div>
 
