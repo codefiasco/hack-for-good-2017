@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :refugees
   resources :organizations
+  resources :jobs, except: [:new]
 
   # Sessions
   post 'login-org', to: 'sessions#login_org'
