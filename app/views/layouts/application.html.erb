@@ -9,6 +9,9 @@
   </head>
 
   <body>
+    <% if !(defined? @hide_nav) %>
+      <%= render 'layouts/navbar' %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

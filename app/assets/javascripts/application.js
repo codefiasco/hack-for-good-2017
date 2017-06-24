@@ -15,3 +15,4 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap/modal
+//= require bootstrap
