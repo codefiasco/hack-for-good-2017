@@ -1,0 +1,177 @@
+
+	var clusterChart;
+
+	var clusters;
+
+	var dense;
+
+     $.ajax({
+           type: "GET",
+           contentType: "application/json; charset=utf-8",
+           url: 'data',
+           dataType: 'json',
+           success: function (data) {
+               draw(data);
+           },
+           error: function (result) {
+               error();
+           }
+       });
+
+	function draw(data) {
+        dense = data;
+        gen_dense();
+	}
+
+
+
+	var selectedBar;
+	function gen_dense () {
+		
+		var w = 700;
+		var h = 400;
+	
+		var padding=100;	
+		
+		var hscale= d3.scale.linear()
+			.domain([10,0])
+			.range([padding,h-padding]);
+		
+		
+		var cscale= d3.scale.linear()
+			.domain([0,20])
+			.range(['#334bff','#000a52' ]);
+		
+		var xscale= d3.scale.linear()
+			.domain([0,dense.length])
+			.range([padding,w-padding]);
+		
+		 yaxis = d3.svg.axis()
+			.scale(hscale)
+			.tickFormat(d3.format("f"))
+			.ticks(5)
+			.orient("left");
+
+		xaxis = d3.svg.axis()
+			.scale(xscale)
+			.tickFormat(d3.format("f"))
+			.ticks(5)
+			.orient("bottom");
+		
+		var svg= d3.select("#barChart")
+					.append("svg")
+					.attr("width",w)
+					.attr("height",h+40); 
+
+		svg.selectAll("rect")
+					.data(dense)
+					.enter()
+					.append("rect")
+						.attr("fill","orange")
+						.attr("width",Math.floor((w-padding*2)/dense.length)-1)
+						.attr("height",function(d) {return h-padding-hscale(d.langCount);})
+						.attr("y",function(d) {return hscale(d.langCount);})
+						.attr("x",function(d, i) { return xscale(i); })
+						.on("mouseover",function(d,i){
+													d3.select(this).attr("style","cursor:pointer;");
+													if(i!=selectedBar) d3.select(this).attr("fill","blue");
+													var texts=svg.selectAll("text");
+													if(i!=selectedBar)
+														d3.select(texts[0][i])
+															.text(function(d) {return d.lang;});
+														})
+						.on("mouseout",function(d,i){
+								
+													    var texts=svg.selectAll("text");
+														d3.select(texts[0][i])
+																.text("");
+														var allBars = svg.selectAll("rect");
+														allBars.attr("stroke","none");
+														allBars.attr("fill","orange")
+													})
+						
+		var texts =svg.selectAll("text").data(dense);
+			
+		
+		texts.enter()
+			.append("text")
+			.style("text-anchor", "middle")
+			.style("font-family", "sans-serif")
+			.style("font-size", "18px")
+			.style("fill", "blue")
+			.attr("x",350)
+			.attr("y",430)
+			.text("");
+			
+						
+						
+		svg.append("g")
+			.attr("class", "axis") //Assign "axis" class
+			.attr("transform", "translate(0," + (h - padding) + ")")
+			.call(xaxis)
+			.append("text")
+			.attr("font-size","5px")
+			.attr("x", w - padding)
+			.attr("y", 40)
+			.style("text-anchor", "end")
+			.text("Origin Country");
+
+		svg.append("g")
+			.attr("class", "axis") //Assign "axis" class
+			.attr("transform", "translate(" + padding + ",0)")
+			.call(yaxis)
+			.append("text")
+			.attr("font-size","5px")
+			.attr("y", padding - 10)
+			.attr("x", padding + 20)
+			.style("text-anchor", "middle")
+			.text("Number of Registered Refugees");
+
+
+
+}
+
+/*
+genPie(){
+
+    var svg =d3.select("#pieChart"),
+        width = +svg.attr("width"),
+        height = +svg.attr("height"),
+        radius = Math.min(width, height) / 2,
+        g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+    var color = d3.scaleOrdinal(["#98abc5", "#8a89a6"]);
+
+    var pie = d3.pie()
+        .sort(null)
+        .value(function(d) { return d.population; });
+
+    var path = d3.arc()
+        .outerRadius(radius - 10)
+        .innerRadius(0);
+
+    var label = d3.arc()
+        .outerRadius(radius - 40)
+        .innerRadius(radius - 40);
+
+    d3.csv("data.csv", function(d) {
+      d.population = +d.population;
+      return d;
+    }, function(error, data) {
+      if (error) throw error;
+
+      var arc = g.selectAll(".arc")
+        .data(pie(data))
+        .enter().append("g")
+          .attr("class", "arc");
+
+      arc.append("path")
+          .attr("d", path)
+          .attr("fill", function(d) { return color(d.data.age); });
+
+      arc.append("text")
+          .attr("transform", function(d) { return "translate(" + label.centroid(d) + ")"; })
+          .attr("dy", "0.35em")
+          .text(function(d) { return d.data.age; });
+    });
+}*/
