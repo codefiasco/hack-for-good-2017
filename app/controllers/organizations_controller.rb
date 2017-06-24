@@ -3,21 +3,10 @@ class OrganizationsController < ApplicationController
   def home
   end
 
-  def dashboard
+  def organizationsLandingPage
   end
 
-  def data
-    @languages = Language.all
-
-    @lang_array = @languages.map do |lang|
-        {lang: lang.name, langCount: lang.refugees.length}
-    end
-
-    respond_to do |format|
-          format.json {
-            render :json => @lang_array.to_json
-          }
-      end
+  def refugeesLandingPage
   end
 
   def index
