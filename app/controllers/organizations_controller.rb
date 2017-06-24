@@ -3,12 +3,6 @@ class OrganizationsController < ApplicationController
   def home
   end
 
-  def organizationsLandingPage
-  end
-
-  def refugeesLandingPage
-  end
-
   def index
     @organizations = Organization.all()
   end
