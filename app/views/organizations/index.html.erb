@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container">
   <h1 align="center" class="sub-title">Organizations</h1>
   <div align="center">
     <div class="inner-addon left-addon search-box">
@@ -11,14 +11,19 @@
         <div class="card org">
           <!--
           <div class="avatar">
-            <%= image_tag t.avatar.url(:thumb), class: "image-responsive" %>
+            <% # image_tag t.avatar.url(:thumb), class: "image-responsive" %>
           </div>
           -->
           <div class="content">
             <p class="searchable">
               <strong><%= o.name %></strong> <br>
-              <%= o. %></p>
-            <%= link_to "Profile", organization_path(t), class: "btn btn-default" %>
+              Contacto telefónico: <%= o.contact %><br>
+              Email: <%= o.email %><br>
+              Morada: <%= o.address %><br>
+            </p>
+            <!--
+            <% # link_to "See Profile", organization_path(o.id), class: "btn btn-default" %>
+            -->
           </div>
         </div>
       <% end %>

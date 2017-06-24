@@ -10,6 +10,63 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20170624160611) do
+
+  create_table "degrees", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "languages", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "organizations", force: :cascade do |t|
+    t.string   "name"
+    t.string   "nif"
+    t.string   "contact"
+    t.string   "address"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.text     "description"
+  end
+
+  create_table "professions", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "refugees", force: :cascade do |t|
+    t.string  "name"
+    t.date    "birthday"
+    t.boolean "gender"
+    t.string  "birth_place"
+    t.string  "nationality"
+    t.date    "arrival_date"
+    t.string  "father_name"
+    t.integer "father_id"
+    t.string  "mother_name"
+    t.integer "mother_id"
+    t.integer "num_siblings"
+    t.string  "native_lang"
+    t.string  "second_lang"
+    t.string  "third_lang"
+    t.string  "address"
+    t.string  "email"
+    t.string  "phone"
+    t.string  "additional_info"
+    t.string  "religion"
+    t.integer "degree_id"
+  end
+
+  create_table "refugees_languages_links", force: :cascade do |t|
+    t.integer "language_id"
+    t.integer "refugee_id"
+  end
+
+  create_table "refugees_professions_links", force: :cascade do |t|
+    t.integer "profession_id"
+    t.integer "refugee_id"
+  end
 
 end
