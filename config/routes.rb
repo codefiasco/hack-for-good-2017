@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   get 'dashboard', to: "organizations#dashboard"
   get 'data', to: 'organizations#data', :defaults => { :format => 'json' }
 
-
   resources :refugees
   resources :organizations
+
+  # Sessions
+  post 'login-org', to: 'sessions#login_org'
+  post 'login-ref', to: 'sessions#login_org'
+  delete 'logout', to: 'sessions#logout'
 end

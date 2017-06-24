@@ -15,10 +15,10 @@ Organization.create(name: 'lotus', nif: '111222333', password: '123456', contact
 1067-001 Lisboa, Portugal', email: 'hello@lotus.pt')
 
 # Refugees
-Refugee.create(name: 'Anne Marie', birthday: "1971-06-24", gender: true, degree_id: 6, nationality: "Arabic")
-Refugee.create(name: 'Michael Tutuola', birthday: "1975-06-24", gender: false, degree_id: 5, nationality: "Arabic")
-Refugee.create(name: 'John Doe', birthday: "1990-06-24", gender: false, father_id: 2, mother_id: 1, degree_id: 7, nationality: "Arabic")
-Refugee.create(name: 'Jane Doe', birthday: "2007-06-24", gender: true, father_id: 2, mother_id: 1, degree_id: 2, nationality: "Arabic")
+Refugee.create(name: 'Anne Marie', birthday: "1971-06-24", gender: true, degree_id: 6, nationality: "Arabic", email: "anne@email.com")
+Refugee.create(name: 'Michael Tutuola', birthday: "1975-06-24", gender: false, degree_id: 5, nationality: "Arabic", email: "michael@email.com")
+Refugee.create(name: 'John Doe', birthday: "1990-06-24", gender: false, father_id: 2, mother_id: 1, degree_id: 7, nationality: "Arabic", email: "john@email.com")
+Refugee.create(name: 'Jane Doe', birthday: "2007-06-24", gender: true, father_id: 2, mother_id: 1, degree_id: 2, nationality: "Arabic", email: "jane@email.com")
 
 # Professions
 Profession.create(name: 'Professor Universitário')
