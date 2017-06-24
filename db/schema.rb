@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170624190837) do
+ActiveRecord::Schema.define(version: 20170624224050) do
 
   create_table "degrees", force: :cascade do |t|
     t.string "name"
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.date     "expiration_date"
+    t.string   "location"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "organization_id"
+  end
+
+  create_table "jobs_skills_links", force: :cascade do |t|
+    t.integer "job_id"
+    t.integer "skill_id"
   end
 
   create_table "languages", force: :cascade do |t|
@@ -22,7 +37,6 @@ ActiveRecord::Schema.define(version: 20170624190837) do
 
   create_table "organizations", force: :cascade do |t|
     t.string   "name"
-    t.string   "nif"
     t.string   "contact"
     t.string   "address"
     t.string   "email"
@@ -45,19 +59,11 @@ ActiveRecord::Schema.define(version: 20170624190837) do
     t.string  "name"
     t.date    "birthday"
     t.boolean "gender"
-    t.string  "birth_place"
     t.string  "nationality"
-    t.date    "arrival_date"
-    t.string  "father_name"
-    t.integer "father_id"
-    t.string  "mother_name"
-    t.integer "mother_id"
-    t.integer "num_siblings"
     t.string  "address"
     t.string  "email"
     t.string  "phone"
     t.string  "additional_info"
-    t.string  "religion"
     t.integer "degree_id"
   end
 
@@ -69,6 +75,15 @@ ActiveRecord::Schema.define(version: 20170624190837) do
   create_table "refugees_professions_links", force: :cascade do |t|
     t.integer "profession_id"
     t.integer "refugee_id"
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "skills_refugees_links", force: :cascade do |t|
+    t.integer "refugee_id"
+    t.integer "skill_id"
   end
 
 end
