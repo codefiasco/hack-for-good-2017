@@ -25,6 +25,11 @@ public
     end
   end
 
+  def show
+    @refugee = Refugee.find(params[:id])
+    session[:refugee_id] = @refugee.id
+  end
+
 
 
 end
