@@ -32,7 +32,7 @@ public
 
   def create
     @refugee = Refugee.new(refugee_params)
-    if(@refugee.save)
+    if @refugee.save
         redirect_to refugees_path
     else
         render 'new'
