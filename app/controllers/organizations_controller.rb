@@ -20,10 +20,19 @@ class OrganizationsController < ApplicationController
     session[:organization_id] = @organization.id
   end
 
+   def create
+    @organization = Organization.new(organization_params)
+    if(@organization.save)
+        redirect_to organization_path(@organization.id)
+    else
+        render 'new'
+    end
+  end
+
   private
 
   def organization_params
-    params.require(:organization).permit(:title, :description, :interests, :skills, :avatar)
+    params.require(:organization).permit(:name, :contact, :address, :email, :password, :description)
   end
 
   def set_organization
