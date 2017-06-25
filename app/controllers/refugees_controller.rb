@@ -18,7 +18,6 @@ public
 
   def create
     @refugee = Refugee.new(refugee_params)
-    byebug
     if(@refugee.save)
         redirect_to refugees_path
     else
