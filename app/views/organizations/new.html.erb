@@ -1,79 +1,79 @@
 
 <div class="innerStyle">
     <div class="row">
-    <%= form_for @organization do |f| %>
-    <div class="form-group spacing-bottom">
-        <div class="col-sm-6 col-sm-offset-1.5">
-            <div class="inner-addon left-addon  spacing-top">
-                <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon1">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                    </span>
-                    <%= f.text_field :name, class: "form-control", placeholder: "Enter name", autofocus: true %>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="form-group spacing-bottom">
-        <div class="col-sm-6 col-sm-offset-1.5">
-            <div class="inner-addon left-addon  spacing-top">
-                <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon1">
-                        <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-                      </span>
-                    <%= f.password_field :password, class: "form-control", placeholder: "Enter password", autocomplete: "off" %>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="form-group spacing-bottom">
-        <div class="col-sm-6 col-sm-offset-1.5">
-            <div class="inner-addon left-addon  spacing-top">
-                <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon1">
-                        <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
-                    </span>
-                    <%= f.text_field :contact, class: "form-control", placeholder: "Enter your contact", autocomplete: "off" %>
-                </div>
-            </div>
-        </div>
-    </div>
-     <div class="form-group spacing-bottom">
-        <div class="col-sm-6 col-sm-offset-1.5">
-            <div class="inner-addon left-addon  spacing-top">
-                <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon1">
-                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                    </span> 
-                    <%= f.text_field :address, class: "form-control", placeholder: "Enter your adress", autocomplete: "off" %>
-                </div>
-            </div>
-        </div>
-    </div>
-     <div class="form-group spacing-bottom">
-        <div class="col-sm-6 col-sm-offset-1.5">
-            <div class="inner-addon left-addon  spacing-top">
-                <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon1">
-                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                    </span> 
-                    <%= f.email_field :email, class: "form-control", placeholder: "Enter your email", autocomplete: "off" %>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="form-group spacing-bottom">
-        <div class="col-sm-6 col-sm-offset-1.5">
-            <div class="inner-addon left-addon  spacing-top">
-                <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon1">
-                        <span class="glyphicon glyphicon-duplicate" aria-hidden="true"></span>
-                    </span> 
-                    <%= f.text_field :description, class: "form-control", placeholder: "You can use this field for adding some more info about organization", autocomplete: "off" %>
-                </div>
-            </div>
-        </div>
-    </div>
+	    <%= form_for @organization do |f| %>
+	    <div class="form-group spacing-bottom">
+	        <div class="col-sm-6 col-sm-offset-1.5">
+	            <div class="inner-addon left-addon  spacing-top">
+	                <div class="input-group">
+	                    <span class="input-group-addon" id="basic-addon1">
+	                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+	                    </span>
+	                    <%= f.text_field :name, class: "form-control", placeholder: "Enter name", autofocus: true %>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	    <div class="form-group spacing-bottom">
+	        <div class="col-sm-6 col-sm-offset-1.5">
+	            <div class="inner-addon left-addon  spacing-top">
+	                <div class="input-group">
+	                    <span class="input-group-addon" id="basic-addon1">
+	                        <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+	                      </span>
+	                    <%= f.password_field :password, class: "form-control", placeholder: "Enter password", autocomplete: "off" %>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	    <div class="form-group spacing-bottom">
+	        <div class="col-sm-6 col-sm-offset-1.5">
+	            <div class="inner-addon left-addon  spacing-top">
+	                <div class="input-group">
+	                    <span class="input-group-addon" id="basic-addon1">
+	                        <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+	                    </span>
+	                    <%= f.text_field :contact, class: "form-control", placeholder: "Enter your contact", autocomplete: "off" %>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	     <div class="form-group spacing-bottom">
+	        <div class="col-sm-6 col-sm-offset-1.5">
+	            <div class="inner-addon left-addon  spacing-top">
+	                <div class="input-group">
+	                    <span class="input-group-addon" id="basic-addon1">
+	                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+	                    </span> 
+	                    <%= f.text_field :address, class: "form-control", placeholder: "Enter your adress", autocomplete: "off" %>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	     <div class="form-group spacing-bottom">
+	        <div class="col-sm-6 col-sm-offset-1.5">
+	            <div class="inner-addon left-addon  spacing-top">
+	                <div class="input-group">
+	                    <span class="input-group-addon" id="basic-addon1">
+	                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+	                    </span> 
+	                    <%= f.email_field :email, class: "form-control", placeholder: "Enter your email", autocomplete: "off" %>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	    <div class="form-group spacing-bottom">
+	        <div class="col-sm-6 col-sm-offset-1.5">
+	            <div class="inner-addon left-addon  spacing-top">
+	                <div class="input-group">
+	                    <span class="input-group-addon" id="basic-addon1">
+	                        <span class="glyphicon glyphicon-duplicate" aria-hidden="true"></span>
+	                    </span> 
+	                    <%= f.text_field :description, class: "form-control", placeholder: "You can use this field for adding some more info about organization", autocomplete: "off" %>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
     </div>
     <div class="row">
 	    <div class="form-group spacing-top">

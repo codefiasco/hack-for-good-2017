@@ -1,24 +1,26 @@
-<div class="container">
-	<div class="row">
-		<div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
-    	 <div class="well profile">
-            <div class="col-sm-12">
-                <div class="col-xs-12 col-sm-8">
-                    <h2><%= @job.title %></h2>
-                    <p><strong>Descrição: </strong><%= @job.description %></p>
-                    <p><strong>Competências: </strong>
-                        <% @job.skills.each do |s| %>
-                          <span class="tags"><%= s.name %></span>
-                        <% end %>
-                    </p>
-                </div>
-                <div class="col-xs-12 col-sm-4 text-center">
-                    <figure>
-                        <%= image_tag "job.png", class: "img-circle img-responsive" %>
-                    </figure>
-                </div>
-    	 </div>
+<div class="innerStyle">
+    <div class="container">
+    	<div class="row">
+    		<div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
+        	 <div class="well profile">
+                <div class="col-sm-12">
+                    <div class="col-xs-12 col-sm-8">
+                        <h2><%= @job.title %></h2>
+                        <p><strong>Descrição: </strong><%= @job.description %></p>
+                        <p><strong>Competências: </strong>
+                            <% @job.skills.each do |s| %>
+                              <span class="tags"><%= s.name %></span>
+                            <% end %>
+                        </p>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 text-center">
+                        <figure>
+                            <%= image_tag "job.png", class: "img-circle img-responsive" %>
+                        </figure>
+                    </div>
+        	 </div>
 
-		</div>
-	</div>
+    		</div>
+    	</div>
+    </div>
 </div>

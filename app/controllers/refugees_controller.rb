@@ -12,6 +12,20 @@ public
     @refugees = Refugee.all
   end
 
+  def job_recommendations
+    @refugee = Refugee.find(session[:ref_id])
+    @skills = @refugee.skills
+    @jobs = []
+    @skills.each do |u|
+      u.jobs.each do |s|
+        if !(@jobs.include? s)
+          @jobs << s
+        end
+      end
+    end
+    render 'jobs/index'
+  end
+
   def new
     @refugee = Refugee.new()
   end
@@ -26,5 +40,9 @@ public
   end
 
 
+  def show
+    @refugee = Refugee.find(params[:id])
+    session[:refugee_id] = @refugee.id
+  end
 
 end
