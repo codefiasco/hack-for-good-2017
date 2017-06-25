@@ -94,9 +94,12 @@ SkillsRefugeesLink.create(refugee_id: 1, skill_id:5)
 SkillsRefugeesLink.create(refugee_id: 1, skill_id: 6)
 SkillsRefugeesLink.create(refugee_id: 1, skill_id: 7)
 SkillsRefugeesLink.create(refugee_id: 1, skill_id: 17)
+SkillsRefugeesLink.create(refugee_id: 3, skill_id: 4)
 
 # Jobs
 Job.create(title: "Frontend Developer", description: "Create websites.", expiration_date: "2017-08-24", location: "Av. de Berna, 45 A
+1067-001 Lisboa, Portugal")
+Job.create(title: "Frontend Developer2", description: "Create websites.", expiration_date: "2017-08-24", location: "Av. de Berna, 45 A
 1067-001 Lisboa, Portugal")
 
 # Job Skill Links
@@ -104,3 +107,5 @@ JobsSkillsLink.create(job_id: 1, skill_id: 1)
 JobsSkillsLink.create(job_id: 1, skill_id: 2)
 JobsSkillsLink.create(job_id: 1, skill_id: 3)
 JobsSkillsLink.create(job_id: 1, skill_id: 5)
+JobsSkillsLink.create(job_id: 2, skill_id: 4)
+JobsSkillsLink.create(job_id: 2, skill_id: 6)
