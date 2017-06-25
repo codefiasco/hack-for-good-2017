@@ -11,6 +11,10 @@ gem 'capistrano-rails', '~> 1.2'
 gem 'capistrano-passenger', '~> 0.2.0'
 gem 'capistrano-rbenv', '~> 2.1'
 
+# Image Upload and Handle
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.4'
 # Use sqlite3 as the database for Active Record
