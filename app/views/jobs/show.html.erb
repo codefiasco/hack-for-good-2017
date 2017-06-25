@@ -18,10 +18,11 @@
                             <%= image_tag "job.png", class: "img-circle img-responsive" %>
                         </figure>
                     </div>
-
-                    <div class="text-center">
-                        <%= link_to "Apply", apply_path(id: @job.id), class: "btn btn-primary", method: "POST" %>
-                  </div>
+                    <% if session[:ref_id] != nil %>
+                        <div class="text-center">
+                            <%= link_to "Apply", apply_path(id: @job.id), class: "btn btn-primary", method: "POST" %>
+                        </div>
+                    <% end %>
         	 </div>
 
     		</div>

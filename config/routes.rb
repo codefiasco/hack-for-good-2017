@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get 'job_recommendations', to: 'refugees#job_recommendations'
+
   post 'apply', to: 'refugees#apply'
 
 

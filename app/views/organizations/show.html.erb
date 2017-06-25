@@ -1,12 +1,14 @@
-<div class="container spacing-top">
-  <div class="col-md-2 col-md-offset-3">
-    <%= image_tag "profile.png", class: "list-image" %>
-  </div>
-  <div class="col-md-6">
-    <strong><%= @organization.name %></strong> <br>
-    Contacto telefónico: <%= @organization.contact %><br>
-    Email: <%= @organization.email %><br>
-    Morada: <%= @organization.address %><br>
-    Description: <%= @organization.description %><br>
+<div class="innerStyle">
+  <div class="container spacing-top">
+    <div class="col-md-2 col-md-offset-3">
+      <%= image_tag "profile.png", class: "list-image" %>
+    </div>
+    <div class="col-md-6">
+      <strong><%= @organization.name %></strong> <br>
+      Contacto telefónico: <%= @organization.contact %><br>
+      Email: <%= @organization.email %><br>
+      Morada: <%= @organization.address %><br>
+      Description: <%= @organization.description %><br>
+    </div>
   </div>
 </div>
