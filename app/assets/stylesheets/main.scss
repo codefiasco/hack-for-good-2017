@@ -33,7 +33,11 @@ html,body{height:100%;}
     align-items: center;
 }
 
-.spacing 
+.spacing
 {
 	margin-right: 1em;
+}
+
+textarea{
+  min-width: 100%;
 }
