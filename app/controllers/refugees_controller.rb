@@ -17,8 +17,10 @@ public
     @skills = @refugee.skills
     @jobs = []
     @skills.each do |u|
-      if !(@jobs.include? u)
-          @jobs+=u.jobs
+      u.jobs.each do |s|
+        if !(@jobs.include? s)
+          @jobs << s
+        end
       end
     end
     render 'jobs/index'
