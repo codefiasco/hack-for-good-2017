@@ -8,6 +8,9 @@ class Refugee < ActiveRecord::Base
   has_many :skills_refugees_links
   has_many :skills, through: :skills_refugees_links
 
+  has_many :refugees_jobs_links
+  has_many :jobs, through: :refugees_jobs_links
+
   has_secure_password
 
   has_one :degree

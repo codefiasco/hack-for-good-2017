@@ -26,13 +26,18 @@ public
     render 'jobs/index'
   end
 
+  def apply
+    @refugee = RefugeesJobsLink.new(refugee_id: session[:ref_id], job_id: params[:id]);
+    @refugee.save
+    redirect_to jobs_path
+  end
   def new
     @refugee = Refugee.new()
   end
 
   def create
     @refugee = Refugee.new(refugee_params)
-    if(@refugee.save)
+    if @refugee.save
         redirect_to refugees_path
     else
         render 'new'
