@@ -16,8 +16,13 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><%= link_to "People", refugees_path %></li>
+        <li><%= link_to "Jobs", jobs_path %></li>
         <li><%= link_to "Organizations", organizations_path %></li>
+        <% if session[:org_id] != nil %>
+          <li>
+            <a href="#" type="button" data-toggle="modal" data-target="#jobModal">Adicionar Vaga</a>
+          </li>
+        <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">

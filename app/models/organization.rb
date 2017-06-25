@@ -1,5 +1,5 @@
 class Organization < ActiveRecord::Base
-  has_many :refugees
+  has_many :jobs
 
   has_secure_password
 end
