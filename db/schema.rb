@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170625074007) do
+ActiveRecord::Schema.define(version: 20170625112703) do
 
   create_table "degrees", force: :cascade do |t|
     t.string "name"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20170625074007) do
     t.string  "additional_info"
     t.integer "degree_id"
     t.string  "password_digest"
+    t.string  "avatar"
   end
 
   create_table "refugees_jobs_links", force: :cascade do |t|

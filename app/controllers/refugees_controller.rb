@@ -3,7 +3,7 @@ class RefugeesController < ApplicationController
 
 private
   def refugee_params
-    params.require(:refugee).permit(:name, :birthday, :gender, :nationality, :address, :email, :phone, :additional_info, :degree_id , :password)
+    params.require(:refugee).permit(:name, :birthday, :gender, :nationality, :address, :email, :phone, :additional_info, :degree_id , :password, :avatar)
   end
 
 
