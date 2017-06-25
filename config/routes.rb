@@ -11,6 +11,6 @@ Rails.application.routes.draw do
 
   # Sessions
   post 'login-org', to: 'sessions#login_org'
-  post 'login-ref', to: 'sessions#login_org'
+  post 'login-ref', to: 'sessions#login_ref'
   delete 'logout', to: 'sessions#logout'
 end
