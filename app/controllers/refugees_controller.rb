@@ -31,6 +31,7 @@ public
     @refugee.save
     redirect_to jobs_path
   end
+
   def new
     @refugee = Refugee.new()
   end
@@ -44,6 +45,10 @@ public
     end
   end
 
+  def my_applications
+    @refugee = Refugee.find(session[:ref_id])
+    @applications = @refugee.jobs
+  end
 
   def show
     @refugee = Refugee.find(params[:id])

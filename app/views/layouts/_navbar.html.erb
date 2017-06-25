@@ -27,9 +27,7 @@
         <!-- Refugee -->
         <% else %>
           <li><%= link_to "Recommendations", job_recommendations_path %></li>
-          <li>
-            <a href="#" type="button" data-toggle="modal" data-target="#jobModal">My applications</a>
-          </li>
+          <li><%= link_to "My Applications", my_applications_path %></li>
         <% end %>
 
       </ul>

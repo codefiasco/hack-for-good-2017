@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get 'job_recommendations', to: 'refugees#job_recommendations'
+  get 'my_applications', to: 'refugees#my_applications'
 
   post 'apply', to: 'refugees#apply'
 
@@ -10,7 +11,7 @@ Rails.application.routes.draw do
   resources :organizations
   resources :jobs, except: [:new]
 
-  
+
   get 'settings', to: 'pages#settings'
 
   # Sessions
