@@ -1,38 +1,40 @@
-<div class="container">
-  <!--<h1 align="center" class="sub-title">Organizations</h1>-->
-  <div align="center">
-    <div class="inner-addon left-addon">
-      <h1>Organizations</h1>
-      <div class="input-group">
-        <span class="input-group-addon button" id="basic-addon1">
-            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-        </span>
-        <input type="text" id="search" placeholder="Search" autocomplete="off" class="form-control center-block">
+<div class="innerStyle">
+  <div class="container">
+    <!--<h1 align="center" class="sub-title">Organizations</h1>-->
+    <div align="center">
+      <div class="inner-addon left-addon">
+        <h1>Organizations</h1>
+        <div class="input-group">
+          <span class="input-group-addon button" id="basic-addon1">
+              <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+          </span>
+          <input type="text" id="search" placeholder="Search" autocomplete="off" class="form-control center-block">
+        </div>
       </div>
     </div>
-  </div>
-  <br>
-  <div class="row">
-    <% @organizations.each do |org| %>
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
+    <br>
+    <div class="row">
+      <% @organizations.each do |org| %>
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
             <% if org.avatar.url.nil? %>
               <%= image_tag "profile.png", class: "list-image" %>
             <% else %>
               <%= image_tag org.avatar, class: "list-image"%>
             <% end %>
-            <div class="caption">
-              <h3><%= org.name %></h3>
-              <p><strong>Contacto telefónico:</strong> <%= org.contact %></p>
-              <p><strong>Email:</strong> <%= org.email %></p>
-              <p><strong>Morada:</strong> <%= org.address %></p>
-              <div class="text-center">
-                <%= link_to "See profile", organization_path(org.id), class: "btn btn-primary" %>
+              <div class="caption">
+                <h3><%= org.name %></h3>
+                <p><strong>Contacto telefónico:</strong> <%= org.contact %></p>
+                <p><strong>Email:</strong> <%= org.email %></p>
+                <p><strong>Morada:</strong> <%= org.address %></p>
+                <div class="text-center">
+                  <%= link_to "See profile", organization_path(org.id), class: "btn btn-primary" %>
+                </div>
               </div>
-            </div>
+          </div>
         </div>
-      </div>
-    <% end %>
-    <a href="/">Back to Main Page </a>
+      <% end %>
+      <a href="/">Back to Main Page </a>
+    </div>
   </div>
 </div>

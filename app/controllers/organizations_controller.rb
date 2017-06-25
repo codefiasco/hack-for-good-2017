@@ -18,7 +18,6 @@ class OrganizationsController < ApplicationController
   def show
     set_organization
     session[:organization_id] = @organization.id
-    byebug
   end
 
    def create
