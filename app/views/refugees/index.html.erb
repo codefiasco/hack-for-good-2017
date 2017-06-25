@@ -16,7 +16,11 @@
       <% @refugees.each do |ref| %>
             <div class="col-sm-6 col-md-4">
               <div class="thumbnail">
-                <%= image_tag "profile.png", class: "list-image" %>
+                <% if ref.avatar.url.nil? %>
+                  <%= image_tag "profile.png", class: "list-image" %>
+                <% else %>
+                  <%= image_tag ref.avatar, class: "list-image"%>
+                <% end %>
                 <div class="caption">
                   <p><strong>Nome:</strong> <%= ref.name %></p>
                   <p><strong>Nacionalidade:</strong> <%= ref.nationality %></p>

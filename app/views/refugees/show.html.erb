@@ -7,25 +7,30 @@
 		    	 <div class="well profile">
 		            <div class="col-sm-12">
 		                <div class="col-xs-12 col-sm-8">
+												<% if @refugee.avatar.url.nil? %>
+													<%= image_tag "profile.png", class: "list-image" %>
+												<% else %>
+													<%= image_tag @refugee.avatar, class: "list-image"%>
+												<% end %>
 		                    <h2><%= @refugee.name %></h2>
 		                    <p><strong>Date of birth:</strong><%= @refugee.birthday %></p>
 		                    <p><strong>Nationality:</strong><%= @refugee.nationality %></p>
 		                    <p><strong>Skills: </strong>
 	                    		<% @refugee.skills.each do |ref| %>
-	                    			<span class="tags spacing-bottom"><%= ref.name %></span> 
+	                    			<span class="tags spacing-bottom"><%= ref.name %></span>
 	                    		<% end %>
 		                    </p>
 		                    <p><strong>Email:</strong><%= @refugee.email %></p>
 		                    <p><strong>Phone:</strong><%= @refugee.phone %></p>
 		                    <p><strong>Additional Info:</strong><%= @refugee.additional_info %></p>
-		                </div>             
+		                </div>
 		                <div class="col-xs-12 col-sm-4 text-center">
 		                    <figure>
 		                        <%= image_tag "profile.png", class: "list-image image_circle image_responsive" %>
 		                    </figure>
 		                </div>
-		            </div>            
-		    	 </div>                 
+		            </div>
+		    	 </div>
 				</div>
 			</div>
 		</div>

@@ -58,7 +58,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon" id="basic-addon1">
                                     <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
-                                </span>  
+                                </span>
                                 <%= f.text_field :nationality, class: "form-control", placeholder: "Enter your nationality", autocomplete: "off" %>
                             </div>
                         </div>
@@ -70,7 +70,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon" id="basic-addon1">
                                     <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                                </span> 
+                                </span>
                                 <%= f.text_field :address, class: "form-control", placeholder: "Enter your adress", autocomplete: "off" %>
                             </div>
                         </div>
@@ -82,31 +82,66 @@
                             <div class="input-group">
                                 <span class="input-group-addon" id="basic-addon1">
                                     <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                                </span> 
+                                </span>
                                 <%= f.email_field :email, class: "form-control", placeholder: "Enter your email", autocomplete: "off" %>
                             </div>
                         </div>
                     </div>
                 </div>
+
+
+                <div class="form-group spacing-bottom">
+                    <div class="col-sm-6 col-sm-offset-1.5">
+                        <div class="inner-addon left-addon  spacing-top">
+                            <div class="input-group">
+                                <div class="col-sm-8 well">
+                                <h2>
+                                Skills
+                                </h2>
+                                  <% Skill.all.each do |s| %>
+                                    <%= f.check_box(:skills, { :multiple => true }, s.id, nil) %>
+                                    <label><%= s.name %></label>
+                                  <% end %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="form-group spacing-bottom">
                     <div class="col-sm-6 col-sm-offset-1.5">
                         <div class="inner-addon left-addon  spacing-top">
                             <div class="input-group">
                                 <span class="input-group-addon" id="basic-addon1">
                                     <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
-                                </span> 
+                                </span>
                                 <%= f.text_field :phone, class: "form-control", placeholder: "Enter your phone", autocomplete: "off" %>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="form-group spacing-bottom">
+          	        <div class="col-sm-6 col-sm-offset-1.5">
+          	            <div class="inner-addon left-addon  spacing-top">
+          	                <div class="input-group">
+          	                    <span class="input-group-addon" id="basic-addon1">
+          	                        <span class="glyphicon glyphicon-camera" aria-hidden="true"></span>
+          	                    </span>
+                                <%= f.file_field :avatar, required: true %>
+          	                </div>
+          	            </div>
+          	        </div>
+          	    </div>
+              </div>
+
                 <div class="form-group spacing-bottom">
                     <div class="col-sm-6 col-sm-offset-1.5">
                         <div class="inner-addon left-addon  spacing-top">
                             <div class="input-group">
                                 <span class="input-group-addon" id="basic-addon1">
                                     <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
-                                </span> 
+                                </span>
                                 <%= f.collection_select :degree_id, Degree.all, :id, :name %>
                             </div>
                         </div>
@@ -118,7 +153,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon" id="basic-addon1">
                                     <span class="glyphicon glyphicon-duplicate" aria-hidden="true"></span>
-                                </span> 
+                                </span>
                                 <%= f.text_field :additional_info, class: "form-control", placeholder: "You can use this field for adding some more info about yourself", autocomplete: "off" %>
                             </div>
                         </div>
