@@ -3,23 +3,6 @@ class OrganizationsController < ApplicationController
   def home
   end
 
-  def dashboard
-  end
-
-  def data
-    @languages = Language.all
-
-    @lang_array = @languages.map do |lang|
-        {lang: lang.name, langCount: lang.refugees.length}
-    end
-
-    respond_to do |format|
-          format.json {
-            render :json => @lang_array.to_json
-          }
-      end
-  end
-
   def index
     @organizations = Organization.all()
   end
