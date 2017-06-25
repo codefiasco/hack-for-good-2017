@@ -3,7 +3,7 @@ class RefugeesController < ApplicationController
 
 private
   def refugee_params
-    params.require(:refugee).permit(:name,:birthplace)
+    params.require(:refugee).permit(:name, :birthday, :gender, :nationality, :address, :email, :phone, :additional_info, :degree_id , :password)
   end
 
 
@@ -18,6 +18,7 @@ public
 
   def create
     @refugee = Refugee.new(refugee_params)
+    byebug
     if(@refugee.save)
         redirect_to refugees_path
     else
