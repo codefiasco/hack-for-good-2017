@@ -17,8 +17,6 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
 
-        <li><%= link_to "People", refugees_path %></li>
-        <li><%= link_to "Organizations", organizations_path %></li>
         <li><%= link_to "All Jobs", jobs_path %></li>
 
         <!-- Organization -->
@@ -29,7 +27,7 @@
 
         <!-- Refugee -->
         <% else %>
-          <li><%= link_to "Jobs Recommendations", job_recommendations_path %></li>
+          <li><%= link_to "Recommendations", job_recommendations_path %></li>
           <li>
             <a href="#" type="button" data-toggle="modal" data-target="#jobModal">My applications</a>
           </li>
@@ -37,8 +35,9 @@
 
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Organizations", organizations_path %></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Name <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <!-- Organization -->
             <% if session[:org_id] != nil %>
