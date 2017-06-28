@@ -1,6 +1,6 @@
 # REFIND
 
-![project logo](app/assets/images/ist-collab-logo.png)
+![project logo](app/assets/images/refind.png)
 
 ## Description:
 Project developed during 2º Edition of [Hack for Good](http://hackforgood.pt) hackathon. *Refind* is a job platform, where companies can post jobs specifically for refugees, with the objective to bypass prejudice from certain employers.
